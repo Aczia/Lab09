@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class hexaCalc extends UserInterface{
-    public hexaCalc(CalcEngine engine){
+public class HexaCalc extends UserInterface{
+    public HexaCalc(CalcEngine engine){
         super(engine);
     }
 
@@ -11,7 +11,7 @@ public class hexaCalc extends UserInterface{
 
     }
 
-    protected void makeFrame(){
+    public void makeFrame(){
         //CheckboxGroup cbg = new CheckboxGroup();
         //buttonPanel.add(new Checkbox("Dec" , cbg, true));
         //buttonPanel.add(new Checkbox())

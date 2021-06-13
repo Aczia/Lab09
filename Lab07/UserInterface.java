@@ -7,19 +7,16 @@ import javax.swing.border.*;
  * A graphical user interface for the calculator. No calculation is being
  * done here. This class is responsible just for putting up the display on 
  * screen. It then refers to the "CalcEngine" to do all the real work.
- * 
- * @author David J. Barnes and Michael Kolling
- * @version 2008.03.30
  */
 public class UserInterface
     implements ActionListener
 {
-    private CalcEngine calc;
+	protected CalcEngine calc;
     private boolean showingAuthor;
 
-    private JFrame frame;
-    private JTextField display;
-    private JLabel status;
+    protected JFrame frame;
+    protected JTextField display;
+    protected JLabel status;
 
     JButton aButton;
     JButton bButton;
@@ -53,7 +50,7 @@ public class UserInterface
     /**
      * Make the frame for the user interface.
      */
-    private void makeFrame()
+    public void makeFrame()
     {
         frame = new JFrame(calc.getTitle());
 
@@ -136,7 +133,7 @@ public class UserInterface
      * @param panel The panel to receive the button.
      * @param buttonText The text for the button.
      */
-    private void addButton(Container panel, String buttonText)
+    protected void addButton(Container panel, String buttonText)
     {
         JButton button = new JButton(buttonText);
         button.addActionListener(this);
@@ -219,7 +216,7 @@ public class UserInterface
      * Update the interface display to show the current value of the 
      * calculator.
      */
-    private void redisplay()
+    protected void redisplay()
     {
         if(checkbox.isSelected()) {
             display.setText(Integer.toHexString(calc.getDisplayValue()));

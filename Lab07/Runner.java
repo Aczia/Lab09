@@ -1,8 +1,7 @@
-public class runner {
+public class Runner {
     public static void main (String args []){
         CalcEngine calcEngine = new CalcEngine();
-        UserInterface userInterface = new UserInterface(calcEngine);
-
+        UserInterfaceString userInterface = new UserInterfaceString(calcEngine);
         userInterface.setVisible(true);
     }
 }

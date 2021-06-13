@@ -1,9 +1,6 @@
 /**
  * The main class of a simple calculator. Create one of these and you'll
  * get the calculator on screen.
- * 
- * @author David J. Barnes and Michael Kolling
- * @version 2008.03.30
  */
 public class Calculator
 {
@@ -15,8 +12,14 @@ public class Calculator
      */
     public Calculator()
     {
-        engine = new CalcEngine();
-        gui = new UserInterface(engine);
+//        engine = new CalcEngineString();
+//        gui = new UserInterfaceString(engine);
+    }
+    
+    public void createCalcString() {
+    	engine = new CalcEngine();
+        gui = new UserInterfaceString(engine);
+        show();
     }
 
     /**
