@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * The main part of the calculator doing the calculations.
  * 
@@ -11,11 +13,11 @@ public class CalcEngine
     
     // Are we already building a value in the display, or will the
     // next digit be the first of a new one?
-    private boolean buildingDisplayValue;
+    protected boolean buildingDisplayValue;
     // Has a left operand already been entered (or calculated)?
     private boolean haveLeftOperand;
     // The most recent operator that was entered.
-    private char lastOperator;
+    protected char lastOperator;
 
     // The current value (to be) shown in the display.
     private int displayValue;
@@ -109,6 +111,11 @@ public class CalcEngine
     {
         applyOperator('*');
     }
+    
+    public void divide()
+    {
+        applyOperator('/');
+    }
 
 
     /**
@@ -141,7 +148,7 @@ public class CalcEngine
      * The result becomes both the leftOperand and
      * the new display value.
      */
-    private void calculateResult()
+    protected void calculateResult()
     {
         switch(lastOperator) {
             case '+':
@@ -197,10 +204,11 @@ public class CalcEngine
     /**
      * Report an error in the sequence of keys that was pressed.
      */
-    private void keySequenceError()
+    protected void keySequenceError()
     {
         System.out.println("A key sequence error has occurred.");
         // Reset everything.
         clear();
     }
+
 }
