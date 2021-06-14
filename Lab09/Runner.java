@@ -1,6 +1,6 @@
 public class Runner {
     public static void main (String args []){
-        CalcEngine calcEngine = new CalcEngine();
+        CalcEngineString calcEngine = new CalcEngineString();
         UserInterfaceString userInterface = new UserInterfaceString(calcEngine);
         userInterface.setVisible(true);
     }

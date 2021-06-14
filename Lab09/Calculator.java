@@ -4,8 +4,8 @@
  */
 public class Calculator
 {
-    private CalcEngine engine;
-    private UserInterface gui;
+    private CalcEngineString engine;
+    private UserInterfaceString gui;
 
     /**
      * Create a new calculator and show it.
@@ -17,7 +17,7 @@ public class Calculator
     }
     
     public void createCalcString() {
-    	engine = new CalcEngine();
+    	engine = new CalcEngineString();
         gui = new UserInterfaceString(engine);
         show();
     }

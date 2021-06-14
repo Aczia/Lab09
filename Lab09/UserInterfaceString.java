@@ -2,7 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,10 +9,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class UserInterfaceString extends UserInterface {
-	CalcEngine calcES;
+	CalcEngineString calcES;
 	private JTextField display2;
 	
-	public UserInterfaceString(CalcEngine engine) {
+	public UserInterfaceString(CalcEngineString engine) {
 		super(engine);
 		calcES = engine;
 	}
@@ -50,35 +49,38 @@ public class UserInterfaceString extends UserInterface {
 		calc.clear();
 		if(command.equals("=")) {
 			String userInput = display.getText();
-			for(char c: userInput.toCharArray()){
-		        if(c == '0' ||
-		                c == '1' ||
-		                c == '2' ||
-		                c == '3' ||
-		                c == '4' ||
-		                c == '5' ||
-		                c == '6' ||
-		                c == '7' ||
-		                c == '8' ||
-		                c == '9') {
-		                 int number = Character.getNumericValue(c);
-		                 calc.numberPressed(number);
-		             }
-		             else if(c == '+') {
-		                 calc.plus();
-		             }
-		             else if(c == '-') {
-		                 calc.minus();
-		             }
-		             else if(c == '*') {
-		                 calc.multiplicate();
-		             }
-		             else if(c == '/') {
-		                 calc.divide();
-		             }
-			}
-			calc.calculateResult();
-			display2.setText("" + calc.getDisplayValue());	
+			String postFix = CalcEngineString.infixToPostfix(userInput);
+			double result = CalcEngineString.evaluates(postFix);
+//			for(char c: userInput.toCharArray()){
+//		        if(c == '0' ||
+//		                c == '1' ||
+//		                c == '2' ||
+//		                c == '3' ||
+//		                c == '4' ||
+//		                c == '5' ||
+//		                c == '6' ||
+//		                c == '7' ||
+//		                c == '8' ||
+//		                c == '9') {
+//		                 int number = Character.getNumericValue(c);
+//		                 calc.numberPressed(number);
+//		             }
+//		             else if(c == '+') {
+//		                 calc.plus();
+//		             }
+//		             else if(c == '-') {
+//		                 calc.minus();
+//		             }
+//		             else if(c == '*') {
+//		                 calc.multiplicate();
+//		             }
+//		             else if(c == '/') {
+//		                 calc.divide();
+//		             }
+//			}
+//			calc.calculateResult();
+//			display2.setText("" + calc.getDisplayValue());
+			display2.setText("" + result);
         }
 	}
 }
